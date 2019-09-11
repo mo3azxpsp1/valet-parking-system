@@ -12,7 +12,7 @@
 ## Steps
 - Clone the repo
 - When you are in the root of the app, run `bundle i` to install the dependencies.
-- Run `rails db:create db:seed` to create the database and seed the primary data into it.
+- Run `rails db:create db:migrate db:seed` to create the database and seed the primary data into it.
 - Run `rails s` to run the local server
 - You can access the app on `http://localhost:3000`
 
