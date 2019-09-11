@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cars</h1>
+
+<table border="1|0">
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Owner</th>
+      <th>Plate Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.model %></td>
+        <td><%= car.owner %></td>
+        <td><%= car.plate_no %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

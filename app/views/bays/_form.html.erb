@@ -1,0 +1,32 @@
+<%= form_with(model: bay, local: true) do |form| %>
+  <% if bay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bay.errors.count, "error") %> prohibited this bay from being saved:</h2>
+
+      <ul>
+      <% bay.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_available %>
+    <%= form.check_box :is_available %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

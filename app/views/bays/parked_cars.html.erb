@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parked Cars</h1>
+
+<table border="1|0" width="60%">
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Owner Name</th>
+      <th>Plate Number</th>
+      <th>Parked At</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bays_cars.each_with_index do |bay_car, i| %>
+      <tr>
+        <td><%= bay_car.car.model %></td>
+        <td><%= bay_car.car.owner %></td>
+        <td><%= bay_car.car.plate_no %></td>
+        <td><%= bay_car.parked_at.strftime("%d/%m/%Y %I:%M:%S %p") %></td>
+        <td>
+            <%= link_to 'Collect', collect_car_bay_path(@bay.id, bay_car_id: bay_car.id) %>
+            <% if @bays_cars.size > 1 && i == @bays_cars.size - 1 %>
+                <%= link_to 'Move', move_car_bay_path(@bay.id, bay_car_id: bay_car.id) %>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back', bays_path %>

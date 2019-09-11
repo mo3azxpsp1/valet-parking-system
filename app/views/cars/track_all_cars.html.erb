@@ -1,0 +1,29 @@
+<h1>Cars</h1>
+
+<table border="1|0" width='60%'>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Owner</th>
+      <th>Plate Number</th>
+      <th>Parked At </th>
+      <th>Bay No</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.car.model %></td>
+        <td><%= car.car.owner %></td>
+        <td><%= car.car.plate_no %></td>
+        <td><%= car.parked_at.strftime("%d/%m/%Y %I:%M:%S %p") %></td>
+        <td><%= car.bay.number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', bays_path %>

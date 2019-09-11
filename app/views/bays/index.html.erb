@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bays</h1>
+
+<table border="1|0" width="60%">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Size</th>
+      <th>Is Vacant?</th>
+      <th>No of Parking Cars</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bays.each do |bay| %>
+      <tr>
+        <td><%= bay.number %></td>
+        <td><%= bay.size %></td>
+        <td><%= bay.is_available ? 'Yes' : 'No' %></td>
+        <td><%= link_to "#{bay.no_of_parking_cars}", parked_cars_bay_path(bay.id) %></td>
+        <td><%= link_to 'Show', bay %></td>
+        <td><%= link_to 'Edit', edit_bay_path(bay) %></td>
+        <td><%= link_to 'Delete', bay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if bay.is_available %>
+          <td><%= link_to 'Park Car', new_car_path(bay_id: bay.id) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bay', new_bay_path %>
+
+<br>
+
+<%= link_to 'Track all Parking Cars', track_all_cars_cars_path %>

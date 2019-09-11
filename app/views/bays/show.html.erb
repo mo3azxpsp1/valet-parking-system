@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @bay.number %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @bay.size %>
+</p>
+
+<p>
+  <strong>Is available:</strong>
+  <%= @bay.is_available %>
+</p>
+
+<%= link_to 'Edit', edit_bay_path(@bay) %> |
+<%= link_to 'Back', bays_path %>
